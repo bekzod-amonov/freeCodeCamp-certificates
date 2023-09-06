@@ -1,0 +1,190 @@
+<html>
+  <body>
+    <script>
+      /*
+      function nextInLine(arr, item) {
+        // Only change code below this line
+        arr.push(item);
+        return arr.shift();
+        // Only change code above this line
+      }
+        // Setup
+        const testArr = [1, 2, 3, 4, 5];
+
+        // Display code
+        console.log("Before: " + JSON.stringify(testArr));
+        console.log(nextInLine(testArr, 6));
+        console.log("After: " + JSON.stringify(testArr));
+        */
+        /*
+        function testLogicalOr(val) {
+          // Only change code below this line
+          if (val < 10 || val > 20) {
+            return "Outside";
+          }
+          // Only change code above this line
+          return "Inside";
+        }
+        console.log(testLogicalOr(15));
+        */
+        /*
+        function abTest(a, b) {
+          if (a < 0 || b < 0) {
+            return undefined; 
+          }
+
+          return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+         }
+        console.log(abTest(-2,2));
+        */
+        /*
+        let count = 0;
+        function cc(card) {
+          // Only change code below this line
+          switch(card) {
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+              count++;
+              break;
+            case 7:
+            case 8:
+            case 9:
+              count += 0;
+              break;
+            case 10:
+            case 'J':
+            case 'Q':
+            case 'K':
+            case 'A':
+              count--;
+              break; 
+          }
+            if (count > 0) {
+              return count + " " + "Bet";
+            } else {
+              return count + " " + "Hold";
+            }
+          // Only change code above this line
+        }
+        console.log(cc());
+        */
+       /*
+        function checkForProperty(object, property) {
+          return object.hasOwnProperty(property);
+        }
+        console.log(checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'));
+        console.log(checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'));
+        */
+
+        /*
+        // Setup
+        const recordCollection = {
+          2548: {
+            albumTitle: 'Slippery When Wet',
+            artist: 'Bon Jovi',
+            tracks: ['Let It Rock', 'You Give Love a Bad Name']
+          },
+          2468: {
+            albumTitle: '1999',
+            artist: 'Prince',
+            tracks: ['1999', 'Little Red Corvette']
+          },
+          1245: {
+            artist: 'Robert Palmer',
+            tracks: []
+          },
+          5439: {
+            albumTitle: 'ABBA Gold',
+          }
+        };
+
+        
+        function updateRecords(records, id, prop, value) {
+          
+          if (value === '') {
+            delete records[id][prop];
+            
+          } else if (prop !== 'tracks' && value !== '') {
+            records[id][prop] = value;
+
+          } else if (prop === 'tracks' && !value !== '') {
+            if (!records.hasOwnProperty('tracks')) {
+              records[id]['prop'] = [];
+            }
+            records[id]['prop'].push(value);   
+          }
+
+          return records;
+        }
+        console.log(recordCollection, 2468, "tracks", "Free");
+        */
+      /*
+      function multiplyAll(arr) {
+        let product = 1;
+        // Only change code below this line
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            product *= arr[i][j];
+          }
+        }
+        // Only change code above this line
+        return product;
+      }
+
+      console.log(multiplyAll([[1, 2], [3, 4], [5, 6, 7]]));
+
+      const ourArray = [];
+      let i = 5;
+
+      do {
+        ourArray.push(i);
+        i++;
+      } while (i < 5);
+      console.log(ourArray);
+
+      const aArray = [];
+      let j = 5;
+
+      while (i < 5) {
+        j++
+        aArray.push(i);
+      }
+      console.log(aArray);
+
+      const myArray = [];
+      let h = 10;
+
+      // Only change code below this line
+      do {
+        myArray.push(h);
+        h++;
+      } while (h < 10);
+
+      console.log(myArray)
+      */
+
+      function multiply(arr, n) {
+        let product = 1;
+        for (let i = 0; i < n; i++) {
+          product *= arr[n];
+        }
+        return product;
+      }
+      console.log(multiply([1,2,3], 2))
+
+      function recursive(arr, n) {
+        let product = 1;
+        if (n <= 0) {
+          return 'Fuck it';
+        } else {
+          return (arr, n-1) * arr[n-1];
+        }
+      }
+      console.log(recursive([1,2,3], 2));
+
+    </script>
+  </body>
+</html>

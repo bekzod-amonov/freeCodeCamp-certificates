@@ -1,0 +1,313 @@
+<html>
+  <body>
+    <script>
+      //// Started on 29.08.2023
+      let printNumTwo1;
+
+      for (let i = 0; i < 3; i++) {
+        if (i === 2) {
+          printNumTwo1 = function() {
+            return i;
+          };
+        }
+      }
+      //console.log(printNumTwo1());
+      //console.log(i);
+
+      var printNumTwo;
+      for (var i = 0; i < 3; i++) {
+        if (i === 2) {
+          printNumTwo = function() {
+            return i;
+          };
+        }
+      }
+      //console.log(printNumTwo());
+
+      ////////////////////////////////////////////task#1
+      
+      function checkScope() {
+        let i = 'function scope';
+        if (false) {
+          i = 'block scope';
+          console.log('Block scope i is: ', i);
+        }
+        console.log('Function scope i is: ', i);
+        return i;
+      }
+      //checkScope();
+
+      ////////////////////////////////////////////task#2
+
+      const increment = (number = 10, value = 10) => number + value;
+      //console.log(increment(5));
+      
+      ////////////////////////////////////////////
+
+      function howMany(...args) { //rest function
+        return "You have passed " + args.length + " arguments.";
+      }
+      //console.log(howMany(0, 1, 2));
+      //console.log(howMany("string", null, [1, 2, 3], { }));
+
+      const sum = (...args) => { //new rest function
+  
+        let total = 0;
+        for (let i = 0; i < args.length; i++) {
+          total += args[i];
+        }
+        return total;
+      }
+      //console.log(sum(1,2,3))
+
+      ////////////////////////////////////////////spread operator
+
+      const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+      let arr2;
+      arr2 = [...arr1];  // Change this line
+      //console.log(arr2);
+      //console.log(arr1 == arr2)
+
+      ////////////////////////////////////////////Destructuring Assignment
+
+      const user = { name: 'John Doe', age: 34 };
+      const { name: userName, age: userAge } = user;
+      
+      const LOCAL_FORECAST = {
+        yesterday: { low: 61, high: 75 },
+        today: { low: 64, high: 77 },
+        tomorrow: { low: 68, high: 80 }
+      };
+
+      // Only change code below this line
+        
+      const {today: {low: lowToday, high: highToday}} = LOCAL_FORECAST;
+
+      //console.log(highToday);
+
+      // Only change code above this line
+
+      let a1 = 10, b1 = 15;
+      [a1,b1] = [b1,a1]
+      //console.log([a1,b1])
+      
+      const [a2, b2, ...arr3] = [1, 2, 3, 4, 5, 7];
+      //console.log(a2, b2);
+      //console.log(arr);
+
+      function removeFirstTwo(source) {
+        const [a, b, ...arr] = source;
+        return [...arr];
+      }
+      const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      //const sourceWithoutFirstTwo = removeFirstTwo(source);
+      //console.log(removeFirstTwo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+      
+      /////////////////////////////////////////////////////////////////////////////
+      
+      //const data = {name: name, age: age, nationality: nationality, location: location}
+      
+      const profileUpdate = (profileData) => {
+        const { name, age, nationality, location } = profileData;
+      }
+      //console.log((profileUpdate(data)));
+
+      const profileUpdate1 = ({ name, age, nationality, location }) => {
+      }
+       
+      const stats = {
+        max: 56.78,
+        standard_deviation: 4.34,
+        median: 34.54,
+        mode: 23.87,
+        min: -0.75,
+        average: 35.85
+      };
+      // Only change code below this line
+      const half = ({max, min}) => (max + min) / 2.0;
+      // Only change code above this line
+      //console.log(half(stats));
+
+
+      function displayUserInfo({ name, age, location }) {
+        console.log(`${name} is ${age} years old and lives in ${location}.`);
+      }
+      const user1 = { name: 'Alice', age: 28, location: 'New York' };
+      //displayUserInfo(user1);
+
+
+      const numbers = [1, 2, 3];
+      const [first, second, third] = numbers;
+      function returnMultipleValues() {
+        return [10, 20, 30];
+      }
+      const [a, b, c] = returnMultipleValues();
+      //console.log([a,b,c]);
+
+
+      const result = {
+        success: ["max-length", "no-amd", "prefer-arrow-functions"],
+        failure: ["no-var", "var-on-top", "linebreak"],
+        skipped: ["no-extra-semi", "no-dup-keys"]
+      };
+      function makeList(arr) {
+        const failureItems = []
+        arr.forEach((element) => {
+          failureItems.push(`<li class="text-warning">${element}</li>`);
+        })
+        return failureItems;
+      }
+      //const failuresList = makeList(result.failure);
+      //makeList(result.failure);
+      //console.log(failuresList)
+  
+
+      function makeList1(arr) {
+        const failureItems = arr.map(item => `<li class="text-warning">${item}</li>`);
+        return failureItems;
+      }
+      const failuresList1 = makeList1(result.failure);
+      makeList(result.failure);
+      //console.log(failuresList1);
+
+
+      ////////////////////////////////////////////////////////////////////////classes
+
+
+      // Explicit constructor
+      class SpaceShuttle {
+        constructor(targetPlanet) {
+          this.targetPlanet = targetPlanet;
+        }
+        takeOff() {
+          console.log("To " + this.targetPlanet + "!");
+        }
+      }
+      // Implicit constructor 
+      class Rocket {
+        launch() {
+          console.log("To the moon!");
+        }
+      }
+      const zeus = new SpaceShuttle('Jupiter');
+      // prints To Jupiter! in console
+      //zeus.takeOff();
+      
+      const atlas = new Rocket();
+      // prints To the moon! in console
+      //atlas.launch();
+
+
+      // Only change code below this line
+      class Vegetable {
+        constructor(name) {
+          this.name = name;
+        }
+
+        shopCart() {
+          console.log('This is '+ this.name)
+        }
+      }
+      // Only change code above this line
+
+      const carrot = new Vegetable('carrot');
+      //carrot.shopCart();
+
+      ////////////////////////////////////////
+
+      class Book {
+        constructor(author) {
+          this._author = author;
+        }
+        // getter
+        get writer() {
+          return this._author;
+        }
+        // setter
+        set writer(updatedAuthor) {
+          this._author = updatedAuthor;
+        }
+      }
+      const novel = new Book('Sherlock Oka');
+      //console.log(novel.writer);
+      novel.writer = 'Alisher Navoiy';
+      //console.log(novel.writer);
+      
+
+      const person = {
+        name: 'Bekzod',
+        surname: 'Amonov',
+        get fulName() {
+          return `${person.name} ${person.surname}`
+        }
+      }
+      //console.log(person.fulName);
+      
+
+      // Only change code below this line
+      class Thermostat {
+        constructor(fahrenheit) {
+          this._fahrenheit = fahrenheit;
+        }
+
+        get temperature() {
+          return 5/9 * (this._fahrenheit - 32);
+        }
+
+        set temperature(celsius) {
+          this._fahrenheit = celsius * 9 / 5 + 32
+        }
+      }
+      // Only change code above this line
+
+      const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+      let temp = thermos.temperature; // 24.44 in Celsius
+      console.log(temp)
+      thermos.temperature = 26;
+      temp = thermos.temperature; // 26 in Celsius
+      console.log(temp)
+      //console.log(thermos)
+
+      /////////////////////////////////////////////////////////////////
+      
+      /*
+      export default function add(x, y) {
+        return x + y;
+      }
+
+      export default function(x, y) {
+        return x + y;
+      }
+      */
+
+      ///////////////////////////////////////////////////////////////// Promise
+
+      const makeServerRequest = new Promise((resolve, reject) => {
+        let responseFromServer = true;
+        if(responseFromServer) {
+          resolve("We got the data");
+        } else {  
+          reject("Data not received");
+        }
+      });
+      makeServerRequest.then(result => {
+        console.log(result)
+      })
+
+      ///////////////////////////////////////////////////////////////// Catch
+
+      const makeServerRequest1 = new Promise((resolve, reject) => {
+        let responseFromServer = false;
+        if(responseFromServer) {
+          resolve("We got the data");
+        } else {  
+          reject("Data not received");
+        }
+      });
+      makeServerRequest1.catch(error => {
+        console.log(error);
+      })    
+
+    </script>
+  </body>
+</html>
