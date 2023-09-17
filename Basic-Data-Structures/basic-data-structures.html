@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Start Date: Sep 13, 2023</h1>
-    <h1>End Date: ongoing... </h1>
+    <h1>End Date: Sep 17, 2023 </h1>
     <script>
 
 //////// Use an Array to Store a Collection of Data      
@@ -257,42 +257,121 @@ function checkInventory(scannedItem) {
     }
   };
   
+
   function isEveryoneHere(userObj) { /// Original answer
-    let newArr = [];
-    for (let key in userObj) {
-      newArr.push(key)
-    }
-    let names = newArr.splice()
-    let newNames = []
+    let names = ['Alan', 'Jeff', 'Sarah', 'Ryan'];
+    let count = [];
     for (let i = 0; i < names.length; i++) {
       if (userObj.hasOwnProperty(names[i])) {
-        newNames.push(names[i])
+       count.push(names[i])
       }
-    } 
-    if (newNames.length < names.length) {
+    }
+    if (count.length !== names.length) {
       return false;
-    } else {
-      return true
     }
-  }
-  console.log(isEveryoneHere(users));
-  
-  
-  function isEveryoneHereModified(userObj) { /// Modified answer
-    let newArr = [];
-    let count = 0;
-    for (let key in userObj) {
-      if (userObj.hasOwnProperty(key)) {
-        newArr.push(key)
-      } 
-    }
-    for (let i = 0; i < newArr.length; i++) {
-      if (userObj.hasOwnProperty(newArr[i])) {
-        return true
+    for (let j = 0; j < names.length; j++) {
+      if (!names.includes(count[j])) {
+        return false;
       }
     }
+    return true
   }
-  console.log(isEveryoneHereModified(users));
+  //console.log(isEveryoneHere(users));
+
+  function isEveryoneHere2(userObj) { /// Modified answer
+    let names = ['Alan', 'Jeff', 'Sarah', 'Ryan'];
+    return names.every(name => userObj.hasOwnProperty(name))
+  }
+  //console.log(isEveryoneHere2(users));
+  
+
+//////// Iterate Through the Keys of an Object with a for...in Statement
+
+const users2 = {
+  Alan: {
+    online: false
+  },
+  Jeff: {
+    online: true
+  },
+  Sarah: {
+    online: true
+  }
+}
+function countOnline(allUsers) {
+let count = 0;
+for (let key in allUsers) {
+  if (allUsers[key].online === true) {
+    count++
+  }
+}
+return count
+}
+//console.log(countOnline(users2));
+
+//////// Generate an Array of All Object Keys with Object.keys()
+
+let users3 = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+function getArrayOfUsers(obj) {
+  return Object.keys(obj)
+}
+//console.log(getArrayOfUsers(users3));
+
+//////// Modify an Array Stored in an Object
+
+  let user = {
+    name: 'Kenneth',
+    age: 28,
+    data: {
+      username: 'kennethCodesAllDay',
+      joinDate: 'March 26, 2016',
+      organization: 'freeCodeCamp',
+      friends: [
+        'Sam',
+        'Kira',
+        'Tomo'
+      ],
+      location: {
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'USA'
+      }
+    }
+  };
+
+  function addFriend(userObj, friend) { // first method
+    // Only change code below this line
+    let arrNames = userObj.data.friends;
+    arrNames.push(friend);
+    return arrNames
+    // Only change code above this line
+  }
+  console.log(addFriend(user, 'Pete'));
+
+  function addFriend2(userObj, friend) { // second method
+    for (let key in userObj) {
+      return userObj[key].friends
+    }
+  }
+  console.log(addFriend2(user, 'Pete'));
+
 
     </script>
   </body>
