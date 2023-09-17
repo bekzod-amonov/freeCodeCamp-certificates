@@ -248,6 +248,7 @@
       class Thermostat {
         constructor(fahrenheit) {
           this._fahrenheit = fahrenheit;
+          
         }
 
         get temperature() {
@@ -262,10 +263,10 @@
 
       const thermos = new Thermostat(76); // Setting in Fahrenheit scale
       let temp = thermos.temperature; // 24.44 in Celsius
-      console.log(temp)
+      //console.log(temp)
       thermos.temperature = 26;
       temp = thermos.temperature; // 26 in Celsius
-      console.log(temp)
+      //console.log(temp)
       //console.log(thermos)
 
       /////////////////////////////////////////////////////////////////
@@ -305,7 +306,7 @@
         }
       });
       makeServerRequest1.catch(error => {
-        console.log(error);
+        //console.log(error);
       })    
 
     </script>
